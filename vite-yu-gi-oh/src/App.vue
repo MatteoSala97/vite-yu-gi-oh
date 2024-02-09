@@ -14,11 +14,24 @@ export default{
   },
   data(){
     return{
-      store
+      store,
     }
+  },
+  methods:{
+    getCards(){
+
+      axios.get(store.apiUrl).then(res =>{
+        console.log(res.data)
+
+        store.cardsList = res.data.data
+      })
+    },
+    
+  },
+  mounted() {
+    this.getCards()
   }
 }
-
 </script>
 
 <template>

@@ -1,11 +1,6 @@
 <script>
   export default{
-        name:"HeaderApp",
-        data(){
-            return{
-                
-            }
-        }
+        name:"HeaderApp"
     }
 </script>
 

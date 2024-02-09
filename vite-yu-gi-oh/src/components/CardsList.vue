@@ -1,20 +1,30 @@
 <script>
-    export default{
+
+  import SingleCard from './SingleCard.vue'
+  import {store} from '../../src/store'
+
+    export default {
     name: 'CardsList',
+    components:{
+      SingleCard
+    },
+    data(){
+      return{
+        store
+      }
     }
+  }
 </script>
 
-<template>
+<template> 
   <div class="container mt-4">
     <div class="row">
-        <div class="col-2">
-            <figure class="d-flex flex-column align-items-center gap-2">
-                <img src="" alt="Card">
-                <span>CARDname</span>
-            </figure>
-        </div>
+      <SingleCard 
+      v-for="(card, index) in store.cardsList" 
+      :key="index"/> 
     </div>
-  </div>
+</div>
+  
 </template>
 
 <style scoped>

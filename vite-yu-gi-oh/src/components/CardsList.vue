@@ -20,13 +20,14 @@
   <div class="container mt-4">
     <div class="row">
       <SingleCard 
-      v-for="(card, index) in store.cardsList" 
-      :key="index"/> 
+      v-for="(element, index) in store.cardsList" 
+      :key="index"
+      :element="element"/> 
     </div>
 </div>
   
 </template>
 
-<style scoped>
+<style lang="scss" scoped>
 
 </style>

@@ -23,17 +23,20 @@
     .col{
 
         figure{
+            text-align: center;
             
             img{
-                -webkit-box-shadow: 5px 10px 13px -7px #fff, 6px 2px 0px 2px rgba(0,0,0,0); 
-                box-shadow: 5px 10px 13px -7px #fff, 6px 2px 0px 2px rgba(0,0,0,0);
+                width: 300px;
+                height: 450px;
+                
                 &:hover{
                     transform: scale(1.02);
+                    -webkit-box-shadow: 0px 0px 20px 5px #c0c0c0; 
+                    box-shadow: 0px 0px 20px 5px #c0c0c0;
                 }
             }
 
             h4{
-                font-weight: bold;
                 font-size: 20px;
                 margin: 0;
             }

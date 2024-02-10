@@ -14,7 +14,7 @@ export default {
 </script>
 
 <template>
-    <div class="loader-container">
+    <div class="loader-container d-flex justify-content-center">
         <div class="loader">
 
         </div>
@@ -24,7 +24,6 @@ export default {
 <style lang="scss" scoped>
 .loader-container{
     height: calc(100vh - 62.5px);
-    justify-content: center;
 }
 .loader {
       width: 100px;
@@ -38,7 +37,7 @@ export default {
       position: absolute;
       inset: 0px;
       border-radius: 50%;
-      border: 10px solid rgb(0, 0, 0);
+      border: 10px solid #fff;
       animation: prixClipFix 2s linear infinite ;
     }
 

@@ -4,6 +4,7 @@
 
     export default{
         name:"SearchApp",
+        emits:['performSearch'],
         data(){
             return{
                 store
@@ -16,20 +17,21 @@
     <nav class="container d-flex flex-column align-items-center justify-content-center mt-4">
         <div class="d-flex align-items-center justify-content-center mb-3">
             <select 
+                v-model="store.searchText" 
                 name="filteredCards" 
                 id="filteredCards" 
                 class="select border rounded px-4 me-2">
                 <option 
                 value="" disabled selected hidden>Select Archetype </option>
-                <option :value="archetype" v-for="archetype in store.archetypes" :key="archetype">{{ archetype }}</option>
+                <option :value="archetype.archetype_name" v-for="(archetype, index) in store.archetypes" :key="index">{{ archetype.archetype_name }}</option>
             </select>
             <form class="d-flex">
                 <input 
+                v-model="store.searchText"
                 name="search"
                 class="form-control me-2" 
                 type="search" 
-                placeholder="Search your card..." 
-                v-model="store.searchText" 
+                placeholder="Search your card..."
                 aria-label="Search"
                 >
                 <button class="btn btn-outline-danger" type="submit" 

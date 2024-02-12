@@ -22,25 +22,27 @@ export default{
     getCards(){
       store.loader = true
       // let myUrl = store.apiUrl 
-      
-      // store.apiUrl = "https://db.ygoprodeck.com/api/v7/cardinfo.php?num=110&offset=0&archetype="
-
       if(store.searchText !== ""){
-        axios.get("https://db.ygoprodeck.com/api/v7/cardinfo.php?num=110&offset=0&archetype=" + store.searchText).then(res =>{
+        axios.get(`https://db.ygoprodeck.com/api/v7/cardinfo.php?archetype=${store.searchText}`).then(res =>{
         store.cardsList = res.data.data
         console.log(store.searchText)
+        store.loader = false
       })
        
+      }else{
+        axios.get(store.apiUrl).then(res =>{
+          store.cardsList = res.data.data
+          store.loader = false
+  
+        })
       }
 
-      axios.get(store.apiUrl).then(res =>{
-        store.cardsList = res.data.data
-        store.loader = false 
-      })
     },
   },
   mounted() {
     this.getCards()
+
+    axios.get('https://db.ygoprodeck.com/api/v7/archetypes.php').then((res) => store.archetypes = res.data)
   }
 }
 </script>

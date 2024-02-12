@@ -25,7 +25,7 @@
                 value="" disabled selected hidden>Select Archetype </option>
                 <option :value="archetype.archetype_name" v-for="(archetype, index) in store.archetypes" :key="index">{{ archetype.archetype_name }}</option>
             </select>
-            <form class="d-flex">
+            <form class="d-flex" @submit.prevent="$emit('performSearch')">
                 <input 
                 v-model="store.searchText"
                 name="search"

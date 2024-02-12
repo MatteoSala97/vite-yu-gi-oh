@@ -20,25 +20,24 @@ export default{
   },
   methods:{
     getCards(){
-
       store.loader = true
+      // let myUrl = store.apiUrl 
+      
+      // store.apiUrl = "https://db.ygoprodeck.com/api/v7/cardinfo.php?num=110&offset=0&archetype="
+
+      if(store.searchText !== ""){
+        axios.get("https://db.ygoprodeck.com/api/v7/cardinfo.php?num=110&offset=0&archetype=" + store.searchText).then(res =>{
+        store.cardsList = res.data.data
+        console.log(store.searchText)
+      })
+       
+      }
 
       axios.get(store.apiUrl).then(res =>{
-
         store.cardsList = res.data.data
-
-        store.loader = false
-
-        res.data.data.forEach(element =>{
-          if(element.archetype !== undefined){
-            if(!store.archetypes.includes(element.archetype)){
-              store.archetypes.push(element.archetype)
-            }
-          }
-        });
+        store.loader = false 
       })
     },
-    
   },
   mounted() {
     this.getCards()
@@ -52,11 +51,13 @@ export default{
   </header>
   <ApiLoader v-if="store.loader"/>
   <main v-else>
-    <SearchApp/>
+    <SearchApp
+    @performSearch="getCards"/>
     <CardsList/>
   </main>
 </template>
 
-<style lang="scss" >
+<style lang="scss"> 
 @use '../src/scss/styles.scss'
 </style>
+

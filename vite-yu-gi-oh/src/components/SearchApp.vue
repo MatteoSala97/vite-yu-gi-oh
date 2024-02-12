@@ -32,12 +32,13 @@
                 v-model="store.searchText" 
                 aria-label="Search"
                 >
-                <button class="btn btn-outline-danger" type="submit">Search</button>
+                <button class="btn btn-outline-danger" type="submit" 
+                @click.prevent="$emit('performSearch')">Search</button>
             </form>
         </div>
   </nav>
     <div id="search-result" class="container border rounded my-5 d-flex align-items-center justify-content-center">
-        <p>Your research resulted in: &nbsp; {{ store.cardsList.length }} found cards.</p>
+        <p>Your research resulted in: {{ store.cardsList.length }} found cards.</p>
     </div>
 </template>
 

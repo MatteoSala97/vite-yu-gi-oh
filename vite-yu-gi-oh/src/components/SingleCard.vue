@@ -1,4 +1,5 @@
 <script>
+    import {store} from '../store'
 
     export default{
     name: 'SingleCard',
@@ -10,7 +11,7 @@
 </script>
 
 <template>
-        <div class="col">
+        <div class="col-3">
             <figure class="d-flex flex-column align-items-center gap-2 mb-5">
                 <img :src="element.card_images[0].image_url_small" :alt="element.name">
                 <h4>{{element.name}}</h4>
@@ -20,7 +21,7 @@
 </template>
 
 <style lang="scss" scoped>
-    .col{
+    .col-3{
 
         figure{
             text-align: center;
